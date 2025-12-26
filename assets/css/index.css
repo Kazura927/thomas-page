@@ -53,7 +53,7 @@
   flex-direction: column;
   align-items: center;
   background-color: #0e0e0ef8;
-  background-image: url('/assets/img/concrete.png');
+  background-image: url('../img/concrete.png');
   background-size: 100%;
   background-blend-mode: multiply;
 }
@@ -81,7 +81,7 @@
 .record-card:hover {
   background: rgba(24, 24, 24, 1);
   border-color: #5a5a5a;
-  background-image: url("/assets/img/noise2.jpg");
+  background-image: url("../img/noise2.jpg");
   background-size: 300px;
   background-blend-mode: overlay;
 }
@@ -311,7 +311,7 @@
   font-family: monospace;
   padding: 0 0.3rem;
   font-size: 0.8rem;
-  cursor: url(/assets/cursor/pointer.cur) pointer;
+  cursor: url(../cursor/pointer.cur) pointer;
 }
 
 .btn-fake:hover {
@@ -549,7 +549,7 @@
 }
 
 .glitch-bg {
-  background-image: url('/assets/img/noise2.jpg');
+  background-image: url('../img/noise2.jpg'); 
   background-size: 300px;
   opacity: 0.04;
   position: absolute;
