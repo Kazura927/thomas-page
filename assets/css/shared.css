@@ -1,19 +1,23 @@
+/* =========================================================
+   VARIABLES
+======================================================== */
 * {
---fuentes-titulos: 'VT323', monospace;
---fuentes-texto: 'MS UI Gothic', 'Share Tech Mono', sans-serif;
---bg-color: #141414;
+  --fuentes-titulos: 'VT323', monospace;
+  --fuentes-texto: 'MS UI Gothic', 'Share Tech Mono', sans-serif;
+  --bg-color: #141414;
 }
 
 /* =========================================================
-                    GLOBAL / BACKGROUND
-========================================================= */
-body {
-  background-image: url("/assets/img/fog-pattern1.png");
-  background-size: 350px;
-  background-repeat: repeat;
+   GLOBAL / BACKGROUND
+======================================================== */
+html, body {
+  background-color: #000;
   color: #ddd;
   font-family: var(--fuentes-texto);
   cursor: url("/assets/cursor/normal.cur"), default;
+  background-image: url("/assets/img/fog-pattern1.png");
+  background-size: 350px;
+  background-repeat: repeat;
 }
 
 .section-break-stamp {
@@ -34,36 +38,32 @@ body {
   padding: 6px 12px;
   font-family: var(--fuentes-texto);
   font-size: 0.9rem;
-  cursor: url(/assets/cursor/pointer.cur) pointer;
+  cursor: url("/assets/cursor/pointer.cur"), pointer;
   transition: all 0.2s ease;
   top: 0;
   margin-top: 1rem;
 }
 
 .mute-button:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255,255,255,0.05);
   color: #fff;
 }
 
 /* =========================================================
-            PAGE FRAME (container principal)
-========================================================= */
+   PAGE FRAME
+======================================================== */
 .page-frame {
   width: 60%;
   margin: 1rem auto 0;
   background-color: transparent;
-
   border: 1px solid #3a3a3a;
   border-radius: 8px;
-
-  box-shadow:
-      0 0 12px rgba(0, 0, 0, 0.7),
-      inset 0 0 8px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 12px rgba(0,0,0,0.7), inset 0 0 8px rgba(255,255,255,0.05);
 }
 
 /* =========================================================
-                    HEADER GENERAL
-========================================================= */
+   HEADER
+======================================================== */
 .header-box {
   position: relative;
   overflow: hidden;
@@ -82,13 +82,32 @@ body {
   font-size: 42px;
 }
 
-.header-box::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 100%; background: linear-gradient( to bottom, rgba(20,20,20,0) 65%, #141414 90%); pointer-events: none; }
+.header-box::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(20,20,20,0) 65%, #141414 90%);
+  pointer-events: none;
+}
 
 .header-img {
   width: 160px;
   opacity: 0.95;
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 65%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 0%, #000 90%, transparent 100%);
+}
+
+.header-img-wrapper {
+  animation: floatHeader 6s ease-in-out infinite;
+}
+
+@keyframes floatHeader {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
 .subtitle {
@@ -98,8 +117,8 @@ body {
 }
 
 /* =========================================================
-                        NAVBAR RETRO
-========================================================= */
+   NAVBAR
+======================================================== */
 .layout-navbar {
   background-color: var(--bg-color);
   border-top: 1px solid #3a3a3a;
@@ -128,14 +147,13 @@ body {
 .active a {
   color: #fc2727;
   border-bottom: 2px solid #fc2727;
-  text-decoration: none;
 }
 
 /* =========================================================
-                            FOOTER
-========================================================= */
-
-footer, .site-footer {
+   FOOTER
+======================================================== */
+footer,
+.site-footer {
   text-align: center;
   font-size: 12px;
   color: #777;
@@ -143,11 +161,9 @@ footer, .site-footer {
   opacity: 0.7;
 }
 
-/* ===================================================================================================
-                                        EX BLOG.CSS - (blog.html)
-====================================================================================================== */
-
-/* ================= BLOG HEADER ================== */
+/* =========================================================
+   BLOG
+======================================================== */
 .blog-header {
   text-align: center;
   padding: 2rem 1rem 1rem;
@@ -164,7 +180,6 @@ footer, .site-footer {
   font-size: 14px;
 }
 
-/* ======================== BLOG LIST (blog.html) =========================== */
 .blog-list {
   padding: 1.5rem;
   background-color: var(--bg-color);
@@ -172,12 +187,11 @@ footer, .site-footer {
 }
 
 .blog-entry {
-  background: rgba(20, 20, 20, 0.75);
+  background: rgba(14, 14, 14, 0.85);
   border: 1px solid #2b2b2b;
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1.2rem;
-  background: rgba(14, 14, 14, 0.85);
 }
 
 .blog-entry-title {
@@ -211,9 +225,6 @@ footer, .site-footer {
   text-decoration: none;
 }
 
-/* =========================================================
-            BLOG ENTRY (entry-x-xx-xxxx-xxxx)
-========================================================= */
 .blog-wrapper {
   display: flex;
   gap: 1rem;
@@ -289,20 +300,34 @@ footer, .site-footer {
   margin-bottom: 14px;
 }
 
-/* ===================================================================================================
-                                        ABOUT (about.html)
-====================================================================================================== */
-
+/* =========================================================
+   ABOUT
+======================================================== */
 .about-section {
   padding: 2rem;
   background-color: var(--bg-color);
+}
+
+.about-features {
+padding: 2rem 2rem 3rem;
+text-align: center;
+background: var(--bg-color);
+}
+
+.about-subtitle {
+font-family: var(--fuentes-titulos);
+color: #eee;
+font-size: 24px;
+font-style: italic;
+margin-bottom: 1.5rem;
+opacity: 0.9;
 }
 
 .about-card {
   border: 1px solid #3a3a3a;
   border-radius: 8px;
   padding: 2rem;
-  background-color: var(--bg-color);
+  background-color: rgba(14,14,14,0.85);
   width: 85%;
   margin: 0 auto;
   box-shadow: inset 0 0 8px rgba(255,255,255,0.04);
@@ -341,13 +366,8 @@ footer, .site-footer {
 
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.about-grid a {
-  cursor: url(../cursor/pointer.cur), pointer;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
 }
 
 .about-hub {
@@ -378,51 +398,21 @@ footer, .site-footer {
   margin-bottom: .3rem;
 }
 
-/* ==============================
-  ABOUT — FEATURE GRID
-  ============================== */
-
-.about-features {
-  padding: 2rem 2rem 3rem;
-  text-align: center;
-}
-
-.about-subtitle {
-  font-family: var(--fuentes-titulos);
-  color: #eee;
-  font-size: 24px;
-  font-style: italic;
-  margin-bottom: 1.5rem;
-  opacity: 0.9;
-}
-
-/* GRID PRINCIPAL */
-.about-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-}
-
-.about-card {
-  background: rgba(14, 14, 14, 0.85);
-}
-
-.about-features {
-  background: var(--bg-color);
-}
-
+/* =========================================================
+   FEATURE CARDS
+======================================================== */
 .feature-card {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  border-radius: 8px;
-  border: 1px solid #3a3a3a;
-  cursor: pointer;
+position: relative;
+display: block;
+overflow: hidden;
+border-radius: 8px;
+border: 1px solid #3a3a3a;
+cursor: pointer;
 
-  background-color: #111;
-  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+background-color: #111;
+box-shadow: 0 0 8px rgba(0,0,0,0.5);
 
-  transition: transform .25s ease, box-shadow .25s ease;
+transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .feature-card:hover {
@@ -430,12 +420,10 @@ footer, .site-footer {
   box-shadow: 0 0 18px rgba(255,255,255,0.12);
 }
 
-/* IMAGEN */
 .feature-card img {
   width: 100%;
   height: 170px;
   object-fit: cover;
-
   filter: brightness(0.75) contrast(0.9) saturate(0.8);
   transition: filter .25s ease;
 }
@@ -445,19 +433,19 @@ footer, .site-footer {
 }
 
 .feature-label {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
 
-  padding: 1rem .5rem .7rem;
-  color: #eee;
-  font-family: var(--fuentes-titulos);
-  font-size: 20px;
-  text-shadow: 0 0 6px rgba(0,0,0,0.9);
+padding: 1rem .5rem .7rem;
+color: #eee;
+font-family: var(--fuentes-titulos);
+font-size: 20px;
+text-shadow: 0 0 6px rgba(0,0,0,0.9);
 
-  transition: padding .25s ease, opacity .25s ease;
+transition: padding .25s ease, opacity .25s ease;
 }
 
 .feature-card:hover .feature-label {
@@ -465,8 +453,9 @@ footer, .site-footer {
   opacity: 1;
 }
 
-/* ============= Fliker Glitch =================*/
-
+/* =========================================================
+   GLITCH / FLICKER
+======================================================== */
 .flicker-glitch {
   position: relative;
   color: #fff;
@@ -490,10 +479,6 @@ footer, .site-footer {
   top: 1px;
 }
 
-.flicker {
-  animation: flickerEffect 2s infinite;
-}
-
 @keyframes flickerEffect {
   0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
     opacity: 1;
@@ -506,30 +491,17 @@ footer, .site-footer {
 }
 
 @keyframes glitchAnim {
-  0% {
-    transform: none;
-  }
-  20% {
-    transform: translate(1px, -1px);
-  }
-  40% {
-    transform: translate(-1px, 1px);
-  }
-  60% {
-    transform: translate(1px, 1px);
-  }
-  80% {
-    transform: translate(-1px, -1px);
-  }
-  100% {
-    transform: none;
-  }
+  0% { transform: none; }
+  20% { transform: translate(1px, -1px); }
+  40% { transform: translate(-1px, 1px); }
+  60% { transform: translate(1px, 1px); }
+  80% { transform: translate(-1px, -1px); }
+  100% { transform: none; }
 }
 
-/* ====================================================== 
-                    COMING-SOON
-========================================================= */
-
+/* =========================================================
+   COMING SOON PAGE
+======================================================== */
 .coming-wrapper {
   display: flex;
   justify-content: center;
@@ -575,45 +547,34 @@ footer, .site-footer {
   margin-top: 2rem;
 }
 
-/* ===================================================================================================
-                                                MEDIA QUERIES
-=================================================================================================== */
-
+/* =========================================================
+   MEDIA QUERIES
+======================================================== */
 @media (max-width: 992px) {
   .retro-navbar {
     gap: 0.5rem;
   }
 }
 
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
   .header-img { display: none; }
-
   .divisor-stamps a { display: none; }
+  .mute-button { display: none; }
+  .texto-header { text-wrap: nowrap; }
 
-  .mute-button {display: none; }
+  .retro-navbar {
+    display: flex;
+    gap: 0;
+    font-size: 14px;
+    flex-wrap: nowrap;
+  }
 
-  .texto-header { text-wrap: nowrap; } 
-  
-  .retro-navbar { 
-    display: flex; 
-    gap: 0; 
-    font-size: 14px; 
-    flex-wrap: nowrap; } 
-  
-  .record-card { 
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; }
-
-  .record-card { 
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; }
-
-  .recent-blog-list { 
-    flex-direction: column; 
-    align-items: flex-start; 
-    }
+  .record-card,
+  .recent-blog-list {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 
   .active {
     display: none;
@@ -625,14 +586,4 @@ footer, .site-footer {
     font-size: 6vw;
     text-align: center;
   }
-}
-
-.header-img-wrapper {
-  animation: floatHeader 6s ease-in-out infinite;
-}
-
-@keyframes floatHeader {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-10px); }
-  100% { transform: translateY(0); }
 }

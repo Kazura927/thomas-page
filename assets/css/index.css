@@ -1,30 +1,4 @@
-/* =========================================================
-                  LOADING SCREEN
-========================================================= */
-
-#boot-screen {
-  position: fixed;
-  inset: 0;
-  background: black;
-  color: #33ff33;
-  font-family: 'VT323', monospace;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  animation: screen-fade 3s steps(1, end) forwards;
-}
-
-@keyframes screen-fade {
-  0% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { opacity: 0; visibility: hidden; pointer-events: none; }
-}
-
-/*==== divisor 2 ====== */
-
-.divisor2 {
+ .divisor2 {
   text-align: center;
   margin: 5rem 0;
   font-family: "Consolas", monospace;
@@ -44,7 +18,7 @@
 }
 
 /* =========================================================
-  FIRST SECTION (intro)
+                      FIRST SECTION
 ========================================================= */
 .first-section {
   background-color: var(--bg-color);
@@ -63,7 +37,7 @@
 }
 
 /* =========================================================
-  SECOND SECTION (records estilo PS2)
+                      SECOND SECTION
 ========================================================= */
 .second-section {
   background-color: var(--bg-color);
@@ -79,11 +53,10 @@
   flex-direction: column;
   align-items: center;
   background-color: #0e0e0ef8;
-  background-image: url('../img/fog-pattern1.png');
-  background-image: url('../img/concrete.png'); /* o otra textura */
+  background-image: url('/assets/img/concrete.png');
   background-size: 100%;
   background-blend-mode: multiply;
-} 
+}
 
 .records-title {
   font-family: var(--fuentes-titulos);
@@ -93,7 +66,6 @@
   padding: .5rem 0;
 }
 
-/* RECORD CARDS */
 .record-card {
   display: flex;
   align-items: center;
@@ -109,7 +81,7 @@
 .record-card:hover {
   background: rgba(24, 24, 24, 1);
   border-color: #5a5a5a;
-  background-image: url("../img/noise2.jpg");
+  background-image: url("/assets/img/noise2.jpg");
   background-size: 300px;
   background-blend-mode: overlay;
 }
@@ -142,24 +114,21 @@
                         PAGE FRAME 2
 ========================================================= */
 .page-frame2 {
-width: 60%;
-margin: 1rem auto 0;
-display: flex;
-justify-content: center;
-
-background-color: transparent;
-border: 1px solid #3a3a3a;
-border-radius: 8px;
-box-shadow:
-    0 0 12px rgba(0, 0, 0, 0.7),
-    inset 0 0 8px rgba(255, 255, 255, 0.05);
+  width: 60%;
+  margin: 1rem auto 0;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  box-shadow:
+      0 0 12px rgba(0, 0, 0, 0.7),
+      inset 0 0 8px rgba(255, 255, 255, 0.05);
 }
 
-
 /* =========================================================
-        THIRD SECTION — TERMINAL RETRO STYLE
+                      THIRD SECTION
 ========================================================= */
-
 .third-section {
   display: flex;
   align-items: center;
@@ -169,7 +138,6 @@ box-shadow:
   border-bottom-left-radius: inherit;
 }
 
-/* Caja que scrollea */
 .third-section-inner {
   border: 1px solid #3a3a3a;
   border-radius: 8px;
@@ -199,7 +167,9 @@ box-shadow:
 }
 
 /* Scrollbar */
-.third-section-inner::-webkit-scrollbar { width: 6px; }
+.third-section-inner::-webkit-scrollbar {
+  width: 6px;
+}
 .third-section-inner::-webkit-scrollbar-thumb {
   background: #333;
   border-radius: 4px;
@@ -210,14 +180,11 @@ box-shadow:
   font-family: var(--fuentes-titulos);
   font-size: 24px;
   font-style: italic;
-  text-align: center;
+  text-align: end;
   color: #eee;
   margin: 0.2rem .3rem;
-  position: relative;
-  text-align: end;
 }
 
-/* Línea separadora */
 .divisor {
   border-bottom: 1px solid #2a2a2a;
   width: 100%;
@@ -231,7 +198,6 @@ box-shadow:
   padding: .5rem 0;
 }
 
-/* Entrada de update */
 .update-entry {
   position: relative;
   padding: .8rem 1.8rem .9rem 2.4rem;
@@ -240,7 +206,6 @@ box-shadow:
   transition: background .15s ease-out;
 }
 
-/* Prompt tipo terminal */
 .update-entry::before {
   content: ">";
   position: absolute;
@@ -251,27 +216,22 @@ box-shadow:
   font-size: 16px;
 }
 
-/* Hover retro */
 .update-entry:hover {
   background: rgba(255,255,255,0.04);
 }
-
 .update-entry:hover .update-date {
   transform: translateX(4px);
   color: #50c750 !important;
   transition: transform 0.2s ease, color 0.2s ease;
 }
-
 .update-entry:hover .update-text {
   text-shadow: 1px 0 red, -1px 0 cyan;
 }
-
 .update-entry:hover::before {
   color: #ff3c3c;
   opacity: 1;
 }
 
-/* Fecha */
 .update-date {
   display: block;
   font-size: 14px;
@@ -281,16 +241,12 @@ box-shadow:
   color: #999;
   letter-spacing: 1px;
 }
-
-/* Texto */
 .update-text {
   color: #c7c7c7;
   font-size: 13px;
   line-height: 1.45;
   padding-right: .5rem;
-  text-wrap: wrap;
 }
-
 
 .updates-icon {
   width: 22px;
@@ -300,21 +256,23 @@ box-shadow:
   margin-right: 1.5rem;
   animation: blink 2s infinite;
 }
-
 @keyframes blink {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 0.4; }
+  0%,100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
 
 /* =========================================================
-  FOURTH SECTION (recent blog posts)
+                        FOURTH SECTION
 ========================================================= */
-
 .fourth-section {
   display: flex;
   flex-direction: column;
   margin-left: 1rem;
-} 
+}
 
 .win95-window {
   width: 85%;
@@ -358,7 +316,6 @@ box-shadow:
 
 .btn-fake:hover {
   filter: brightness(1.4);
-  cursor: url(/assets/cursor/pointer.cur) pointer;
 }
 
 .win95-content {
@@ -388,13 +345,11 @@ box-shadow:
   text-decoration: underline;
 }
 
-
-
-
+/* Windows style & misc */
 .window {
   background: #111;
   border: 2px solid #444;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 8px rgba(0,0,0,0.7);
   font-family: 'VT323', monospace;
   margin-bottom: 1rem;
   min-width: 60%;
@@ -402,14 +357,13 @@ box-shadow:
 }
 
 .window-header {
-  background: #1a1a1a;
+  background: linear-gradient(to left, #333, #222);
   color: #eee;
   padding: 0.3rem 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #000;
-  background: linear-gradient(to left, #333, #222);
 }
 
 .window-title {
@@ -439,7 +393,7 @@ box-shadow:
 }
 
 .window.error-log {
-  box-shadow: 0 0 6px rgba(255, 0, 0, 0.4);
+  box-shadow: 0 0 6px rgba(255,0,0,0.4);
 }
 
 .window-offset {
@@ -456,8 +410,7 @@ box-shadow:
   gap: 10px;
 }
 
-/* =============== ANIMACIONES =================== */
-
+/* Animations */
 .window {
   animation: fadeInUp 0.5s ease-out;
 }
@@ -476,27 +429,22 @@ box-shadow:
 /* =========================================================
                         MEDIA QUERIES
 ========================================================= */
-
 @media (max-width: 768px) {
   .page-frame2 {
     display: flex;
     flex-direction: column;
   }
-
   .third-section {
     width: 100%;
     padding: 1rem;
   }
-
   .fourth-section .win95-window {
     width: 100%;
     max-width: 100%;
   }
 }
 
-
-/* =================== GIFTS SUELTOS ======================= */
-
+/* =================== GIFS SUELTOS ======================= */
 .moon-left {
   position: fixed;
   left: 0;
@@ -514,12 +462,7 @@ box-shadow:
   z-index: 1;
 }
 
-/* =================== ANIMACIONES ========================= */
-
-
-
-/* ============= Glitch =================*/
-
+/* ============= Glitch / Typewriter / Loader =========== */
 .glitch {
   position: relative;
   color: #fff;
@@ -542,8 +485,6 @@ box-shadow:
   left: 1px;
   top: 1px;
 }
-
-/* ============= typewriter =================*/
 
 .update-text.typewriter {
   white-space: normal;
@@ -568,10 +509,10 @@ box-shadow:
 }
 
 @keyframes fadeIn {
-  to { opacity: 1; }
+  to {
+    opacity: 1;
+  }
 }
-
-/* ============= bios =================*/
 
 #loader-screen {
   position: fixed;
@@ -596,16 +537,14 @@ box-shadow:
   }
 }
 
-
-
+/* GLITCH SECTIONS */
 .section-glitch-break {
   position: relative;
-  background-color: rgba(0, 0, 0, 0.4); /* o transparent */
+  background-color: rgba(0,0,0,0.4);
   padding: 2rem;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  margin: 4rem 0;
   overflow: hidden;
-  box-shadow: inset 0 1px 0 rgba(255, 0, 0, 0.2);
+  box-shadow: inset 0 1px 0 rgba(255,0,0,0.2);
   border: none;
 }
 
@@ -614,8 +553,10 @@ box-shadow:
   background-size: 300px;
   opacity: 0.04;
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   mix-blend-mode: screen;
   pointer-events: none;
 }
@@ -633,16 +574,21 @@ box-shadow:
 .glitch-gif {
   float: right;
   width: 88px;
-  height: auto;
   image-rendering: pixelated;
   margin-left: 1rem;
   animation: floatGif 5s ease-in-out infinite;
 }
 
 @keyframes floatGif {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .glitch-title {
@@ -653,50 +599,32 @@ box-shadow:
 }
 
 @keyframes glitchText {
-  0% { text-shadow: 1px 0 red; }
-  20% { text-shadow: -1px -1px cyan; }
-  40% { text-shadow: 2px 1px magenta; }
-  60% { text-shadow: -2px 0px blue; }
-  80% { text-shadow: 1px 2px green; }
-  100% { text-shadow: 0 0 4px red; }
-}
-
-.glitch-text {
-  font-size: 15px;
-  margin: .4rem 0;
-  color: #999;
-}
-
-.code-fragment {
-  color: #ff8585;
-  font-style: italic;
-}
-
-.hidden-link {
-  display: inline-block;
-  margin-top: 1.4rem;
-  color: transparent;
-  background-color: #1a1a1a;
-  padding: .4rem .8rem;
-  border: 1px solid #333;
-  font-size: 13px;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  cursor: url("/assets/cursor/pointer.cur"), pointer;
-}
-
-.hidden-link:hover {
-  color: #fff;
-  border-color: #ff3c3c;
-  text-shadow: 0 0 4px #ff3c3c;
+  0% {
+    text-shadow: 1px 0 red;
+  }
+  20% {
+    text-shadow: -1px -1px cyan;
+  }
+  40% {
+    text-shadow: 2px 1px magenta;
+  }
+  60% {
+    text-shadow: -2px 0 blue;
+  }
+  80% {
+    text-shadow: 1px 2px green;
+  }
+  100% {
+    text-shadow: 0 0 4px red;
+  }
 }
 
 .fragment-log {
-  background: rgba(15, 15, 15, 0.65);
+  background: rgba(15,15,15,0.65);
   border: 1px solid #2a2a2a;
   padding: .5rem .5rem .2rem .5rem;
   margin: 0 2rem 1.5rem;
-  font-family: 'MS UI Gothic', 'Share Tech Mono', monospace;
+  font-family: 'MS UI Gothic','Share Tech Mono',monospace;
   color: #ccc;
   text-shadow: 0 0 1px #000;
 }
@@ -706,16 +634,14 @@ box-shadow:
   color: #e6e6e6;
   font-size: 1.2rem;
   border-bottom: 1px solid #333;
-  padding: .2rem .5rem;
-  padding-bottom: 0.5rem;
+  padding: .2rem .5rem .5rem;
   margin-bottom: 1rem;
-  letter-spacing: 0.5px;
 }
 
 .fragment-log .entry {
-  margin-bottom: 0.75rem;
+  margin-bottom: .75rem;
   line-height: 1.6;
-  font-size: 0.95rem;
+  font-size: .95rem;
   color: #bbb;
 }
 
@@ -729,23 +655,32 @@ box-shadow:
   animation: flicker 2s infinite;
 }
 
-/* Glitch-like flicker animation */
 @keyframes flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
-  65% { opacity: 0.9; }
-  70% { opacity: 0.7; }
-  80% { opacity: 0.85; }
+  0%,100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  65% {
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.85;
+  }
 }
 
 .blog-fragments {
-  background: rgba(15, 15, 15, 0.65);
+  background: rgba(15,15,15,0.65);
   border: 1px solid #2a2a2a;
   padding: 1rem 1.2rem;
   margin: 2rem 4rem 1.5rem 0;
-  font-family: 'MS UI Gothic', 'Share Tech Mono', monospace;
+  font-family: var(--fuentes-texto);
   color: #ccc;
-  max-height: 250px; /* Ajustable */
+  max-height: 250px;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: #444 #1a1a1a;
@@ -754,11 +689,10 @@ box-shadow:
 .blog-fragments h4 {
   font-family: 'EB Garamond', serif;
   font-size: 1.1rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: .8rem;
   color: #e2e2e2;
   border-bottom: 1px solid #333;
-  padding-bottom: 0.3rem;
-  letter-spacing: 0.3px;
+  padding-bottom: .3rem;
 }
 
 .blog-list {
@@ -770,12 +704,11 @@ box-shadow:
 
 .blog-list li {
   border-bottom: 1px dashed #333;
-  padding-bottom: 0.4rem;
+  padding-bottom: .4rem;
 }
 
 .blog-list li::before {
   content: "✦";
-  left: 0;
   color: #8f8f8f;
   font-size: 0.85rem;
   margin: 0 .5rem 0;
