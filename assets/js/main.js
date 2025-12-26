@@ -251,3 +251,46 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "auto";
   }
 });
+
+// ===========================  SCRIPT 6 - MUSICA ============================= //
+
+const audio = document.getElementById('bg-music');
+const btn = document.getElementById('mute-btn');
+
+// Cargar el tiempo anterior (si existe)
+window.addEventListener('DOMContentLoaded', () => {
+  const savedTime = localStorage.getItem('audioTime');
+  const savedMuted = localStorage.getItem('audioMuted');
+
+  // ✅ Set volumen inicial aquí
+  audio.volume = 0.15;
+
+  if (savedTime !== null) {
+    audio.currentTime = parseFloat(savedTime);
+  }
+
+  if (savedMuted === 'true') {
+    audio.muted = true;
+    btn.textContent = '🔇 Music Off';
+  }
+
+  // Reproducir tras primera interacción (móviles/browsers modernos)
+  window.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play().catch(() => { });
+    }
+  }, { once: true });
+});
+
+// Guardar tiempo y mute al salir
+window.addEventListener('beforeunload', () => {
+  localStorage.setItem('audioTime', audio.currentTime);
+  localStorage.setItem('audioMuted', audio.muted);
+});
+
+// Toggle mute
+btn.addEventListener('click', () => {
+  audio.muted = !audio.muted;
+  btn.textContent = audio.muted ? '🔇 Music Off' : '🔊 Music On';
+  localStorage.setItem('audioMuted', audio.muted);
+});

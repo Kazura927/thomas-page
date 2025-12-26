@@ -1,7 +1,4 @@
-/* =========================================================
-                        VARIABLES
-========================================================= */
-:root {
+* {
 --fuentes-titulos: 'VT323', monospace;
 --fuentes-texto: 'MS UI Gothic', 'Share Tech Mono', sans-serif;
 --bg-color: #141414;
@@ -11,12 +8,12 @@
                     GLOBAL / BACKGROUND
 ========================================================= */
 body {
-  background-image: url("../img/fog-pattern1.png");
+  background-image: url("/assets/img/fog-pattern1.png");
   background-size: 350px;
   background-repeat: repeat;
   color: #ddd;
   font-family: var(--fuentes-texto);
-  cursor: url("../cursor/normal.cur"), default;
+  cursor: url("/assets/cursor/normal.cur"), default;
 }
 
 .section-break-stamp {
@@ -25,7 +22,28 @@ body {
   background-color: var(--bg-color);
 }
 
+.section-break-stamp a {
+  cursor: url("/assets/cursor/pointer.cur"), pointer;
+}
 
+.mute-button {
+  position: absolute;
+  background: none;
+  border: 1px solid #444;
+  color: #ccc;
+  padding: 6px 12px;
+  font-family: var(--fuentes-texto);
+  font-size: 0.9rem;
+  cursor: url(/assets/cursor/pointer.cur) pointer;
+  transition: all 0.2s ease;
+  top: 0;
+  margin-top: 1rem;
+}
+
+.mute-button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
 
 /* =========================================================
             PAGE FRAME (container principal)
@@ -64,7 +82,7 @@ body {
   font-size: 42px;
 }
 
-.header-box::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 100%; /* ajustá según el efecto */ background: linear-gradient( to bottom, rgba(20,20,20,0) 65%, #141414 90%); pointer-events: none; }
+.header-box::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 100%; background: linear-gradient( to bottom, rgba(20,20,20,0) 65%, #141414 90%); pointer-events: none; }
 
 .header-img {
   width: 160px;
@@ -472,6 +490,42 @@ footer, .site-footer {
   top: 1px;
 }
 
+.flicker {
+  animation: flickerEffect 2s infinite;
+}
+
+@keyframes flickerEffect {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 4px rgba(255,255,255,0.8);
+  }
+  20%, 24%, 55% {
+    opacity: 0.5;
+    text-shadow: none;
+  }
+}
+
+@keyframes glitchAnim {
+  0% {
+    transform: none;
+  }
+  20% {
+    transform: translate(1px, -1px);
+  }
+  40% {
+    transform: translate(-1px, 1px);
+  }
+  60% {
+    transform: translate(1px, 1px);
+  }
+  80% {
+    transform: translate(-1px, -1px);
+  }
+  100% {
+    transform: none;
+  }
+}
+
 /* ====================================================== 
                     COMING-SOON
 ========================================================= */
@@ -482,6 +536,7 @@ footer, .site-footer {
   align-items: center;
   flex-direction: column;
   height: 70vh;
+  background-color: #000;
 }
 
 .coming-box {
@@ -510,11 +565,14 @@ footer, .site-footer {
   text-align: center;
 }
 
-.loading-gif {
-  width: 30vw;
-  height: 15vw;
+.img-coming {
+  width: 50vw;
+  height: 30vw;
   opacity: 0.9;
-  image-rendering: pixelated;
+}
+
+.coming-padding {
+  margin-top: 2rem;
 }
 
 /* ===================================================================================================
@@ -527,12 +585,42 @@ footer, .site-footer {
   }
 }
 
-@media (max-width: 768px) {
-  .header-img {
-    display: none; }
+@media (max-width: 768px) { 
+  .header-img { display: none; }
+
+  .divisor-stamps a { display: none; }
+
+  .mute-button {display: none; }
+
+  .texto-header { text-wrap: nowrap; } 
+  
+  .retro-navbar { 
+    display: flex; 
+    gap: 0; 
+    font-size: 14px; 
+    flex-wrap: nowrap; } 
+  
+  .record-card { 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; }
+
+  .record-card { 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; }
+
+  .recent-blog-list { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    }
+
+  .active {
+    display: none;
+  }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 570px) {
   .header-box-texto h1 {
     font-size: 6vw;
     text-align: center;

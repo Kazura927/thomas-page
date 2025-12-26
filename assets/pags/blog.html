@@ -3,22 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thomas' Fog Archive | Blog</title>
+    <title>Blog – Thomas' Inner Room</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="../img/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/shared.css">
 </head>
+
+    <!-- AUDIO INVISIBLE -->
+    <audio id="bg-music" loop autoplay>
+        <source src="/assets/sfx/music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
 <body>
 
     <main>
         <div class="page-frame">
 
-            <div class="container-fluid col-12 header-box d-flex justify-content-between align-items-end pb-1">
+            <header class="container-fluid col-12 header-box d-flex justify-content-between align-items-end pb-1">
+
+                <button id="mute-btn" class="mute-button" aria-label="Toggle music">
+                    🔊 Music On
+                </button>
 
                 <div class="row header-box-texto">
                     <div class="col-12 col-md-12 d-flex flex-column texto-header pb-2">
-                        <h1 class="mb-1">Thomas' Inner Room</h1>
+                        <h1 class="mb-1 flicker-glitch">Thomas' Inner Room</h1>
                         <p class="subtitle">memories drifting through static</p>
                     </div>
                 </div>
@@ -27,7 +38,7 @@
                 <div class="col-12 col-md-4 d-flex justify-content-end pe-5 pt-3 pb-3 header-img-wrapper">
                     <img src="../img/james.png" alt="header illustration" class="header-img">
                 </div>
-            </div>
+            </header>
 
             <!-- NAV-BAR -->
             <div class="layout-navbar">
@@ -36,16 +47,16 @@
                         <a class="nav-link" href="/index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./about.html">About</a>
+                        <a class="nav-link" href="/assets/pags/about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./blog.html">Blog</a>
+                        <a class="nav-link" href="/assets/pags/blog.html">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../pags/guestbook.html">Guestbook</a>
+                        <a class="nav-link" href="/assets/pags/coming-soon.html">Guestbook</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./contact.html">Contact</a>
+                        <a class="nav-link" href="/assets/pags/coming-soon.html">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -61,9 +72,19 @@
             <!-- BLOG POSTS LIST -->
             <section class="blog-list">
 
+                <!-- ENTRY 3 -->
+                <article class="blog-entry">
+                    <a class="blog-entry-title" href="./entradas-blog/entry3-22-12-2025.html" target="_blank">end of the year thoughts</a>
+                    <span class="blog-entry-date">Dec 22, 2025</span>
+                    <p class="blog-entry-excerpt">
+                        just me rambling about december.
+                    </p>
+                    <a href="./entradas-blog/entry3-22-12-2025.html" class="blog-readmore">Read more →</a>
+                </article>
+
                 <!-- ENTRY 2 -->
                 <article class="blog-entry">
-                    <a class="blog-entry-title" href="./entradas-blog/entry2-13-12-2025.html" target="_blank">On Building This Place</a>
+                    <a class="blog-entry-title" href="./entradas-blog/entry2-13-12-2025.html" target="_blank">on building this place</a>
                     <span class="blog-entry-date">Dec 13, 2025</span>
                     <p class="blog-entry-excerpt">
                         Notes on learning, experimenting, and shaping this place over time.
@@ -73,10 +94,10 @@
 
                 <!-- ENTRY 1 -->
                 <article class="blog-entry">
-                    <a class="blog-entry-title" href="./entradas-blog/entry1-10-12-2025.html" target="_blank">Primeros pasos en mi rincón retro</a>
+                    <a class="blog-entry-title" href="./entradas-blog/entry1-10-12-2025.html" target="_blank">primeros pasos en mi rincón retro</a>
                     <span class="blog-entry-date">Dec 10, 2025</span>
                     <p class="blog-entry-excerpt">
-                        Mi primer post en español, compartiendo mis pensamientos sobre la creación de este archivo personal con estética retro.
+                        Mi primer post en español, compartiendo mis pensamientos sobre la creación de este archivo personal.
                     </p>
                     <a href="./entradas-blog/entry1-10-12-2025.html" class="blog-readmore">Read more →</a>
                 </article>
@@ -86,11 +107,11 @@
         </div>
     </main>
 
-    <footer class="site-footer">
-        © 2025 Thomas' Inner Room — Last updated Dec 13, 2025
+    <footer>
+        © 2025 Thomas' Inner Room — Last updated Dec 22, 2025
     </footer>
 
-<script src="../js/main.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
 
 </body>
 </html>

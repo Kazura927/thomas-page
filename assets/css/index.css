@@ -22,6 +22,27 @@
   100% { opacity: 0; visibility: hidden; pointer-events: none; }
 }
 
+/*==== divisor 2 ====== */
+
+.divisor2 {
+  text-align: center;
+  margin: 5rem 0;
+  font-family: "Consolas", monospace;
+  font-size: 11px;
+  color: #555;
+}
+
+.divisor2::before {
+  content: "[ memory fragment incomplete ]";
+}
+
+.divisor-stamps {
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
 /* =========================================================
   FIRST SECTION (intro)
 ========================================================= */
@@ -34,6 +55,7 @@
   border: 1px solid #3a3a3a;
   border-radius: 8px;
   background: rgba(14, 14, 14, 0.85);
+  margin: 2rem 0;
 }
 
 .first-section p {
@@ -46,11 +68,12 @@
 .second-section {
   background-color: var(--bg-color);
   padding: 2rem;
+  border-radius: inherit;
+  padding-bottom: 4rem;
 }
 
 .second-section-inner {
   border: 1px solid #3a3a3a;
-  border-radius: 8px;
   padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
@@ -141,7 +164,7 @@ box-shadow:
   display: flex;
   align-items: center;
   padding: 2rem;
-  width: 60%;
+  width: 80%;
   border-top-left-radius: inherit;
   border-bottom-left-radius: inherit;
 }
@@ -198,16 +221,6 @@ box-shadow:
 .divisor {
   border-bottom: 1px solid #2a2a2a;
   width: 100%;
-  animation: glitchLine 4s infinite;
-}
-
-@keyframes glitchLine {
-  0%, 95%, 100% {
-    opacity: 1;
-  }
-  96%, 97%, 98% {
-    opacity: 0.4;
-  }
 }
 
 .updates-header {
@@ -412,7 +425,7 @@ box-shadow:
 .window-body {
   padding: 0.8rem;
   color: #ccc;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 }
 
 .system-log-line {
@@ -464,38 +477,22 @@ box-shadow:
                         MEDIA QUERIES
 ========================================================= */
 
-@media (max-width: 768px) { 
-  .header-img { 
-    display: none; }
+@media (max-width: 768px) {
+  .page-frame2 {
+    display: flex;
+    flex-direction: column;
+  }
 
-  .texto-header { text-wrap: nowrap; } 
-  
-  .retro-navbar { 
-    display: flex; 
-    gap: 0; 
-    font-size: 14px; 
-    flex-wrap: nowrap; } 
-  
-  .record-card { 
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; }
+  .third-section {
+    width: 100%;
+    padding: 1rem;
+  }
 
-  .record-card { 
-    flex-direction: column; 
-    align-items: center; 
-    text-align: center; }
-
-  .recent-blog-list { 
-    flex-direction: column; 
-    align-items: flex-start; 
-    }
-
-  .active {
-    display: none;
+  .fourth-section .win95-window {
+    width: 100%;
+    max-width: 100%;
   }
 }
-
 
 
 /* =================== GIFTS SUELTOS ======================= */
@@ -519,20 +516,7 @@ box-shadow:
 
 /* =================== ANIMACIONES ========================= */
 
-.flicker {
-  animation: flickerEffect 2s infinite;
-}
 
-@keyframes flickerEffect {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    opacity: 1;
-    text-shadow: 0 0 4px rgba(255,255,255,0.8);
-  }
-  20%, 24%, 55% {
-    opacity: 0.5;
-    text-shadow: none;
-  }
-}
 
 /* ============= Glitch =================*/
 
@@ -557,27 +541,6 @@ box-shadow:
   color: #27fdf5;
   left: 1px;
   top: 1px;
-}
-
-@keyframes glitchAnim {
-  0% {
-    transform: none;
-  }
-  20% {
-    transform: translate(1px, -1px);
-  }
-  40% {
-    transform: translate(-1px, 1px);
-  }
-  60% {
-    transform: translate(1px, 1px);
-  }
-  80% {
-    transform: translate(-1px, -1px);
-  }
-  100% {
-    transform: none;
-  }
 }
 
 /* ============= typewriter =================*/
@@ -647,7 +610,7 @@ box-shadow:
 }
 
 .glitch-bg {
-  background-image: url('../img/noise2.jpg');
+  background-image: url('/assets/img/noise2.jpg');
   background-size: 300px;
   opacity: 0.04;
   position: absolute;
@@ -719,11 +682,118 @@ box-shadow:
   font-size: 13px;
   text-decoration: none;
   transition: color 0.3s ease;
-  cursor: url("../cursor/pointer.cur"), pointer;
+  cursor: url("/assets/cursor/pointer.cur"), pointer;
 }
 
 .hidden-link:hover {
   color: #fff;
   border-color: #ff3c3c;
   text-shadow: 0 0 4px #ff3c3c;
+}
+
+.fragment-log {
+  background: rgba(15, 15, 15, 0.65);
+  border: 1px solid #2a2a2a;
+  padding: .5rem .5rem .2rem .5rem;
+  margin: 0 2rem 1.5rem;
+  font-family: 'MS UI Gothic', 'Share Tech Mono', monospace;
+  color: #ccc;
+  text-shadow: 0 0 1px #000;
+}
+
+.fragment-log h4 {
+  font-family: 'EB Garamond', serif;
+  color: #e6e6e6;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #333;
+  padding: .2rem .5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.fragment-log .entry {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #bbb;
+}
+
+.fragment-log .entry em {
+  color: #aaa;
+  font-style: italic;
+}
+
+.fragment-log .glitch {
+  color: #b65b5b;
+  animation: flicker 2s infinite;
+}
+
+/* Glitch-like flicker animation */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+  65% { opacity: 0.9; }
+  70% { opacity: 0.7; }
+  80% { opacity: 0.85; }
+}
+
+.blog-fragments {
+  background: rgba(15, 15, 15, 0.65);
+  border: 1px solid #2a2a2a;
+  padding: 1rem 1.2rem;
+  margin: 2rem 4rem 1.5rem 0;
+  font-family: 'MS UI Gothic', 'Share Tech Mono', monospace;
+  color: #ccc;
+  max-height: 250px; /* Ajustable */
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #444 #1a1a1a;
+}
+
+.blog-fragments h4 {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: #e2e2e2;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.3rem;
+  letter-spacing: 0.3px;
+}
+
+.blog-list {
+  margin: 0;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.blog-list li {
+  border-bottom: 1px dashed #333;
+  padding-bottom: 0.4rem;
+}
+
+.blog-list li::before {
+  content: "✦";
+  left: 0;
+  color: #8f8f8f;
+  font-size: 0.85rem;
+  margin: 0 .5rem 0;
+  display: inline-block;
+}
+
+.blog-list li:last-child {
+  border-bottom: none;
+}
+
+.blog-list a {
+  color: #bbb;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.blog-list a:hover {
+  color: #fff;
+  text-shadow: 0 0 3px #999;
 }

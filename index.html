@@ -10,7 +10,16 @@
     <link rel="stylesheet" href="assets/css/shared.css">
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
+
+    <!-- AUDIO INVISIBLE -->
+    <audio id="bg-music" loop autoplay>
+        <source src="/assets/sfx/music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
 <body>
+
+    <!-- ================= LOADING / BOOT SCREEN ======================== -->
 
     <div id="loader-screen">
         <pre>
@@ -30,9 +39,16 @@
             <img src="assets/gif/moonturn.gif" alt="">
         </div>
 
+        <!-- ================= PAGE FRAME 1 ======================== -->
+
         <div class="page-frame">
 
-            <div class="container-fluid col-12 header-box d-flex justify-content-between align-items-end pb-1">
+            <!-- HEADER -->
+            <header class="container-fluid col-12 header-box d-flex justify-content-between align-items-end pb-1">
+
+                <button id="mute-btn" class="mute-button" aria-label="Toggle music">
+                    🔊 Music On
+                </button>
 
                 <div class="row header-box-texto">
                     <div class="col-12 col-md-12 d-flex flex-column texto-header pb-2">
@@ -44,8 +60,9 @@
                 <div class="col-12 col-md-4 d-flex justify-content-end pe-5 pt-3 pb-3 header-img-wrapper">
                     <img src="assets/img/heather.png" alt="header illustration" class="header-img">
                 </div>
-            </div>
+            </header>
         
+            <!-- NAVBAR -->
             <div class="layout-navbar">
                 <ul class="nav retro-navbar">
                     <li class="nav-item active">
@@ -66,6 +83,7 @@
                 </ul>
             </div>
 
+            <!-- INTRO -->
             <div class="first-section">
                 <div class="d-flex flex-column align-items-center first-section-inner">
                     <p class="pt-2">Welcome back.</p>
@@ -78,8 +96,15 @@
                 </div>
             </div>
 
-            <div class="second-section">
+            <!-- STAMPS -->
+            <div class="divisor-stamps">
+                <a href=""><img src="/assets/gif/stamp-neocities.gif" alt=""></a>
+                <a href=""><img src="/assets/gif/stamp-notepad.gif" alt=""></a>
+                <a href="https://steamcommunity.com/id/KazuraGS/" target="_blank"><img src="/assets/gif/stamp-steam.gif" alt=""></a>
+            </div>
 
+            <!-- RECORDS -->
+            <div class="second-section">
                 <div class="second-section-inner">
 
                     <h2 class="records-title flicker">Recent Records</h2>
@@ -111,30 +136,20 @@
                             At least, I hope she isn’t.</p>
                         </div>
                     </div>
+                    
                 </div>
-            
             </div>
 
         </div>
 
-        <section class="section-glitch-break">
-            <div class="glitch-bg"></div>
-        
-            <div class="glitch-content">
-                <img src="assets/gif/alert.gif" class="glitch-gif" alt="alert gif">
-        
-                <h2 class="glitch-title">DATA BREACH DETECTED</h2>
-                <p class="glitch-text">> Memory sector 3B... unreadable.</p>
-                <p class="glitch-text">> Fragment found: <span class="code-fragment">"...they left me here..."</span></p>
-        
-                <a href="#" class="hidden-link">Access corrupted entry</a>
-            </div>
-        </section>
+        <div class="divisor2 divisor-margin"></div>
 
+
+        <!-- =================== PAGE FRAME 2 ========================= -->
         <div class="page-frame2">
             
+            <!-- UPDATES -->
             <div class="third-section">
-
                 <div class="third-section-inner">
 
                     <div class="updates-header">
@@ -144,8 +159,38 @@
                     <div class="divisor"></div>
                     
                     <div class="update-entry">
+                        <span class="update-date">Dec 22, 2025</span>
+                        <p class="update-text typewriter" data-content="Added a new blog entry.">Added a new blog entry.</p>
+                    </div>
+
+                    <div class="update-entry">
+                        <span class="update-date">Dec 20, 2025</span>
+                        <p class="update-text">I fixed some responsiveness issues and tweaked the layout a little more.</p>
+                    </div>
+
+                    <div class="update-entry">
+                        <span class="update-date">Dec 20, 2025</span>
+                        <p class="update-text">I added background music to the site, along with a toggle button to mute it. The mute state and playback position are now saved between sessions.</p>
+                    </div>
+
+                    <div class="update-entry">
+                        <span class="update-date">Dec 18, 2025</span>
+                        <p class="update-text">I refactored several block elements to move further away from the Y2K-inspired style. The aesthetic pivoted into something more subdued and atmospheric.</p>
+                    </div>
+
+                    <div class="update-entry">
+                        <span class="update-date">Dec 16, 2025</span>
+                        <p class="update-text">I changed the entire layout once again because I wasn't convinced by the first one (I'm still not convinced).</p>
+                    </div>
+
+                    <div class="update-entry">
+                        <span class="update-date">Dec 13, 2025</span>
+                        <p class="update-text">I redesigned the blog list to better reflect the site's “gothic digital” atmosphere. It now supports scrolling for future entries</p>
+                    </div>
+
+                    <div class="update-entry">
                         <span class="update-date">Dec 11, 2025</span>
-                        <p class="update-text typewriter" data-content="I worked hard on improving the aesthetics of the page and managed to significantly enhance its appearance. I added several animations and GIFs."></p>
+                        <p class="update-text">I worked hard on improving the aesthetics of the page and managed to significantly enhance its appearance. I added several animations and GIFs.</p>
                     </div>
 
                     <div class="update-entry">
@@ -171,49 +216,25 @@
 
             </div>
 
+            <!-- WINDOWS -->
             <div class="fourth-section">
 
-                <div class="win95-window">
-                    <div class="win95-titlebar">
-                        <div class="win-tab">
-                            <img src="assets/gif/folder-open.gif" alt="" class="gif-title">
-                            <span class="win95-title">Recent Blog Posts</span>
-                        </div>
-                        <div class="win95-buttons">
-                            <button class="btn-fake">—</button>
-                            <button class="btn-fake">x</button>
-                        </div>
-                    </div>
-
-                    <div class="win95-content">
-                        <!-- Aquí metés tus entradas del blog -->
-                        <ul class="blog-list">
-                            <li><a href="assets/pags/coming-soon.html">• Placeholder</a></li>
-                            <li><a href="/assets/pags/entradas-blog/entry2-13-12-2025.html">• On Building This Place</a></li>
-                            <li><a href="/assets/pags/entradas-blog/entry1-10-12-2025.html">• Primeros pasos en mi rincón retro</a></li>
-                        </ul>
-                    </div>
-
+                <div class="blog-fragments">
+                    <h4>✎ Recovered Notes</h4>
+                    <ul class="blog-list">
+                        <li><a href="/assets/pags/entradas-blog/entry3-22-12-2025.html">end of the year thoughts</a></li>
+                        <li><a href="/assets/pags/entradas-blog/entry2-13-12-2025.html">on building this place</a></li>
+                        <li><a href="/assets/pags/entradas-blog/entry1-10-12-2025.html">primeros pasos en mi rincóncito retro</a></li>
+                    </ul>
                 </div>
 
-                <div class="window dark-window window-offset">
-                    <div class="window-header">
-                        <div class="win-tab">
-                            <img src="assets/gif/notepad.gif" alt="" class="gif-title">
-                            <span class="window-title .window.error-log">System Log</span>
-                        </div>
-                        
-                        <div class="window-buttons">
-                            <button class="btn-fake">—</button>
-                            <button class="btn-fake">x</button>
-                        </div>
-                    </div>
-                    <div class="window-body">
-                        <p class="system-log-line">> Initializing archive subsystem...</p>
-                        <p class="system-log-line">> Memory check: OK</p>
-                        <p class="system-log-line">> Ghost trace detected in sector 7C</p>
-                        <p class="system-log-line error">> ERROR: Unable to decrypt entry #442</p>
-                    </div>
+                <div class="fragment-log">
+                    <h4>✖ Residual Thoughts</h4>
+                    <p class="entry"><em>“Monsters... They looked like monsters to you?”</em></p>
+                    <p class="entry">“The only me is me. Are you sure the only you is you?”</p>
+                    <p class="entry"><em>“Along with you died joy. All that remains is despair and a future of meaningless tomorrows.”</em></p>
+                    <p class="entry">“I was weak. That’s why I needed you... needed someone to punish me for my sins.”</p>
+                    <p class="entry glitch">"There was a hole here. It's gone now."</p>
                 </div>
 
             </div>
@@ -222,7 +243,7 @@
     </main>
 
     <footer>
-        © 2025 Thomas' Inner Room — Last updated Dec 13, 2025
+        © 2025 Thomas' Inner Room — Last updated Dec 22, 2025
     </footer>
 
 <script src="/assets/js/main.js" defer></script>
