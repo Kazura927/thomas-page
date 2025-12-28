@@ -140,20 +140,19 @@ function let_it_snow(c) {
 // ===========================  SCRIPT 2 - NAV ACTIVO  ============================= //
 
 const navItems = document.querySelectorAll('.retro-navbar .nav-item');
-const currentPage = window.location.pathname.split('/').pop();
+const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
-// Primero, limpiar cualquier .active que venga escrito en el HTML
 navItems.forEach(item => item.classList.remove('active'));
 
-// Buscar el link cuyo href coincide con la página actual
 navItems.forEach(item => {
     const link = item.querySelector('a');
     const href = link.getAttribute('href');
 
-    if (href.endsWith(currentPage)) {
+    if (href && href.endsWith(currentPage)) {
         item.classList.add('active');
     }
 });
+
 
 // ===========================  SCRIPT 3 - TYPEWRITTER ============================= //
 
@@ -195,13 +194,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const content = el.getAttribute("data-content");
 
         if (content) {
-          el.innerHTML = ""; // limpia lo que hubiera
+          el.innerHTML = "";
           typeTextLineByLine(el, content);
-          observer.unobserve(el); // solo lo ejecuta una vez
+          observer.unobserve(el);
         }
       }
     });
-  }, { threshold: 0.6 }); // se activa cuando el 60% del elemento está visible
+  }, { threshold: 0.6 });
 
   observedElements.forEach(el => observer.observe(el));
 });
@@ -236,7 +235,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loader-screen");
   const hasVisited = localStorage.getItem("visited_before");
 
-  // Mostrar loader SOLO la primera vez
   if (!hasVisited) {
     document.body.style.overflow = "hidden";
     loader.style.display = "flex";
@@ -257,13 +255,14 @@ document.addEventListener("DOMContentLoaded", () => {
 const audio = document.getElementById('bg-music');
 const btn = document.getElementById('mute-btn');
 
-// Cargar el tiempo anterior (si existe)
+const MAX_VOLUME = 0.15;
+const FADE_DURATION = 2;
+
 window.addEventListener('DOMContentLoaded', () => {
   const savedTime = localStorage.getItem('audioTime');
   const savedMuted = localStorage.getItem('audioMuted');
 
-  // ✅ Set volumen inicial aquí
-  audio.volume = 0.15;
+  audio.volume = MAX_VOLUME;
 
   if (savedTime !== null) {
     audio.currentTime = parseFloat(savedTime);
@@ -274,7 +273,6 @@ window.addEventListener('DOMContentLoaded', () => {
     btn.textContent = '🔇 Music Off';
   }
 
-  // Reproducir tras primera interacción (móviles/browsers modernos)
   window.addEventListener('click', () => {
     if (audio.paused) {
       audio.play().catch(() => { });
@@ -282,15 +280,48 @@ window.addEventListener('DOMContentLoaded', () => {
   }, { once: true });
 });
 
-// Guardar tiempo y mute al salir
 window.addEventListener('beforeunload', () => {
   localStorage.setItem('audioTime', audio.currentTime);
   localStorage.setItem('audioMuted', audio.muted);
 });
 
-// Toggle mute
 btn.addEventListener('click', () => {
   audio.muted = !audio.muted;
   btn.textContent = audio.muted ? '🔇 Music Off' : '🔊 Music On';
   localStorage.setItem('audioMuted', audio.muted);
+});
+
+// FADE OUT
+audio.addEventListener('timeupdate', () => {
+  const remaining = audio.duration - audio.currentTime;
+
+  if (remaining < FADE_DURATION && !audio._isFadingOut) {
+    audio._isFadingOut = true;
+
+    const step = audio.volume / (FADE_DURATION * 10);
+    const fadeOut = setInterval(() => {
+      if (audio.volume > 0.01) {
+        audio.volume = Math.max(0, audio.volume - step);
+      } else {
+        clearInterval(fadeOut);
+        audio.volume = 0;
+      }
+    }, 100);
+  }
+});
+
+// FADE IN
+audio.addEventListener('ended', () => {
+  audio.currentTime = 0;
+  audio._isFadingOut = false;
+  audio.volume = 0;
+  audio.play();
+
+  const fadeIn = setInterval(() => {
+    if (audio.volume < MAX_VOLUME) {
+      audio.volume = Math.min(MAX_VOLUME, audio.volume + 0.01);
+    } else {
+      clearInterval(fadeIn);
+    }
+  }, 100);
 });
