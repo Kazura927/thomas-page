@@ -257,12 +257,63 @@ const btn = document.getElementById('mute-btn');
 
 const MAX_VOLUME = 0.15;
 const FADE_DURATION = 2;
+const FADE_INTERVAL = 100;
+let isFading = false;
+let hasStarted = false;
 
+// FADE IN
+function fadeInAudio() {
+  isFading = true;
+  audio.volume = 0;
+  const step = MAX_VOLUME / (FADE_DURATION * 1000 / FADE_INTERVAL);
+  const fadeIn = setInterval(() => {
+    if (audio.volume < MAX_VOLUME) {
+      audio.volume = Math.min(MAX_VOLUME, audio.volume + step);
+    } else {
+      clearInterval(fadeIn);
+      isFading = false;
+    }
+  }, FADE_INTERVAL);
+}
+
+// FADE OUT
+function fadeOutAudio(callback) {
+  isFading = true;
+  const step = audio.volume / (FADE_DURATION * 1000 / FADE_INTERVAL);
+  const fadeOut = setInterval(() => {
+    if (audio.volume > 0.01) {
+      audio.volume = Math.max(0, audio.volume - step);
+    } else {
+      clearInterval(fadeOut);
+      audio.volume = 0;
+      isFading = false;
+      if (typeof callback === 'function') callback();
+    }
+  }, FADE_INTERVAL);
+}
+
+// Guardar estado al salir
+window.addEventListener('beforeunload', () => {
+  localStorage.setItem('audioTime', audio.currentTime);
+  localStorage.setItem('audioMuted', audio.muted);
+});
+
+// Iniciar música con interacción
+function handleFirstInteraction() {
+  if (hasStarted) return;
+  hasStarted = true;
+
+  audio.play().then(() => {
+    if (!audio.muted) fadeInAudio();
+  }).catch(() => {});
+}
+
+// Al cargar la página
 window.addEventListener('DOMContentLoaded', () => {
   const savedTime = localStorage.getItem('audioTime');
   const savedMuted = localStorage.getItem('audioMuted');
 
-  audio.volume = MAX_VOLUME;
+  audio.volume = 0;
 
   if (savedTime !== null) {
     audio.currentTime = parseFloat(savedTime);
@@ -273,55 +324,29 @@ window.addEventListener('DOMContentLoaded', () => {
     btn.textContent = '🔇 Music Off';
   }
 
-  window.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.play().catch(() => { });
-    }
-  }, { once: true });
+  // Detectar primera interacción
+  ['click', 'scroll', 'mousemove'].forEach(event =>
+    window.addEventListener(event, handleFirstInteraction, { once: true })
+  );
 });
 
-window.addEventListener('beforeunload', () => {
-  localStorage.setItem('audioTime', audio.currentTime);
-  localStorage.setItem('audioMuted', audio.muted);
+// Reinicio suave al final
+audio.addEventListener('timeupdate', () => {
+  const remaining = audio.duration - audio.currentTime;
+  if (remaining < FADE_DURATION && !isFading) {
+    isFading = true;
+    fadeOutAudio(() => {
+      audio.currentTime = 0;
+      audio.play().then(() => {
+        if (!audio.muted) fadeInAudio();
+      });
+    });
+  }
 });
 
+// Mute toggle
 btn.addEventListener('click', () => {
   audio.muted = !audio.muted;
   btn.textContent = audio.muted ? '🔇 Music Off' : '🔊 Music On';
   localStorage.setItem('audioMuted', audio.muted);
-});
-
-// FADE OUT
-audio.addEventListener('timeupdate', () => {
-  const remaining = audio.duration - audio.currentTime;
-
-  if (remaining < FADE_DURATION && !audio._isFadingOut) {
-    audio._isFadingOut = true;
-
-    const step = audio.volume / (FADE_DURATION * 10);
-    const fadeOut = setInterval(() => {
-      if (audio.volume > 0.01) {
-        audio.volume = Math.max(0, audio.volume - step);
-      } else {
-        clearInterval(fadeOut);
-        audio.volume = 0;
-      }
-    }, 100);
-  }
-});
-
-// FADE IN
-audio.addEventListener('ended', () => {
-  audio.currentTime = 0;
-  audio._isFadingOut = false;
-  audio.volume = 0;
-  audio.play();
-
-  const fadeIn = setInterval(() => {
-    if (audio.volume < MAX_VOLUME) {
-      audio.volume = Math.min(MAX_VOLUME, audio.volume + 0.01);
-    } else {
-      clearInterval(fadeIn);
-    }
-  }, 100);
 });
