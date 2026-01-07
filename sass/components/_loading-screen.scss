@@ -1,0 +1,22 @@
+#loader-screen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  color: lime;
+  font-family: monospace;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#loader-screen.fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}

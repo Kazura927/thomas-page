@@ -1,0 +1,92 @@
+@keyframes flicker {
+  0%,100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  65% {
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  80% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes flickerEffect {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 4px rgba(255,255,255,0.8);
+  }
+  20%, 24%, 55% {
+    opacity: 0.5;
+    text-shadow: none;
+  }
+}
+
+@keyframes glitchAnim {
+  0% { transform: none; }
+  20% { transform: translate(1px, -1px); }
+  40% { transform: translate(-1px, 1px); }
+  60% { transform: translate(1px, 1px); }
+  80% { transform: translate(-1px, -1px); }
+  100% { transform: none; }
+}
+
+@keyframes blink {
+  0%,100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.flicker-glitch {
+  position: relative;
+  color: #fff;
+  animation: flickerEffect 2s infinite, glitchAnim 1s infinite;
+}
+
+.flicker-glitch::before,
+.flicker-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ff3c3c;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.flicker-glitch::after {
+  color: #27fdf5;
+  left: 1px;
+  top: 1px;
+}
+
+.glitch {
+  position: relative;
+  color: #fff;
+  animation: glitchAnim 1s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ff3c3c;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.glitch::after {
+  color: #27fdf5;
+  left: 1px;
+  top: 1px;
+}

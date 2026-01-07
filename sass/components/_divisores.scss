@@ -1,0 +1,23 @@
+.divisor {
+  border-bottom: 1px solid #2a2a2a;
+  width: 100%;
+}
+
+.divisor2 {
+  text-align: center;
+  margin: 5rem 0;
+  font-family: "Consolas", monospace;
+  font-size: 11px;
+  color: #555;
+}
+
+.divisor2::before {
+  content: "[ memory fragment incomplete ]";
+}
+
+.divisor-stamps {
+  background-color: #141414;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}

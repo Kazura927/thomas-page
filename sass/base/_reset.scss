@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* =========================================================
+   GLOBAL / BACKGROUND
+======================================================== */
+html, body {
+  background-color: #000;
+  color: #ddd;
+  font-family: 'MS UI Gothic', 'Share Tech Mono', sans-serif;
+  cursor: url("assets/cursor/normal.cur"), default;
+  background-image: url("assets/img/fog-pattern1.png");
+  background-size: 350px;
+  background-repeat: repeat;
+}

@@ -1,0 +1,17 @@
+/* =================== GIFS SUELTOS ======================= */
+.moon-left {
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 1rem 1rem 0 0;
+  transform: scaleX(-1);
+  z-index: 1;
+}
+
+.moon-right {
+  position: fixed;
+  right: 0;
+  top: 0;
+  padding: 1rem 1rem 0 0;
+  z-index: 1;
+}

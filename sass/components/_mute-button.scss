@@ -1,0 +1,18 @@
+.mute-button {
+  position: absolute;
+  background: none;
+  border: 1px solid #444;
+  color: #ccc;
+  padding: 6px 12px;
+  font-family: 'MS UI Gothic', 'Share Tech Mono', sans-serif;
+  font-size: 0.9rem;
+  cursor: url("assets/cursor/pointer.cur"), pointer;
+  transition: all 0.2s ease;
+  top: 0;
+  margin-top: 1rem;
+}
+
+.mute-button:hover {
+  background-color: rgba(255,255,255,0.05);
+  color: #fff;
+}
