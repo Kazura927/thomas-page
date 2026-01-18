@@ -2,6 +2,32 @@
   .retro-navbar {
     gap: 0.5rem;
   }
+
+  .blog-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar-title {
+    display: none;
+  }
+
+  .list-unstyled {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0 3rem;
+  }
+
+  .sidebar li {
+  border-top: none;
+  padding: .5rem;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -37,6 +63,11 @@
     align-items: center;
     text-align: center;
   }
+
+  .list-unstyled {
+    gap: 0 1rem;
+  }
+
 }
 
 @media (max-width: 570px) {
@@ -86,6 +117,10 @@
 
   .coming-wrapper {
     margin-top: 5rem;
+  }
+
+  .list-unstyled {
+    gap: 0 2rem;
   }
 
 }
