@@ -1,9 +1,11 @@
+@use "../utilities/variables" as *;
+
 .feature-card {
 position: relative;
 display: block;
 overflow: hidden;
 border-radius: 8px;
-border: 1px solid #3a3a3a;
+border: $border1;
 cursor: pointer;
 
 background-color: #111;

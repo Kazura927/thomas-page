@@ -251,8 +251,38 @@ html, body {
   color: #fff;
 }
 
+.page-frame {
+  width: 60%;
+  margin: 1rem auto 0;
+  background-color: transparent;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.7), inset 0 0 8px rgba(255, 255, 255, 0.05);
+}
+
+.page-frame2 {
+  width: 60%;
+  margin: 1rem auto 0;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.7), inset 0 0 8px rgba(255, 255, 255, 0.05);
+}
+
+/* Scrollbar */
+.third-section-inner::-webkit-scrollbar {
+  width: 6px;
+}
+
+.third-section-inner::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
 /* =========================================================
-   HEADER
+                          HEADER
 ======================================================== */
 .header-box {
   position: relative;
@@ -312,8 +342,8 @@ html, body {
 }
 
 /* =========================================================
-   NAVBAR
-======================================================== */
+                          NAVBAR
+========================================================== */
 .layout-navbar {
   background-color: #141414;
   border-top: 1px solid #3a3a3a;
@@ -347,29 +377,9 @@ html, body {
 /* =========================================================
                     INDEX - PAGE
 ========================================================== */
-.page-frame {
-  width: 60%;
-  margin: 1rem auto 0;
-  background-color: transparent;
-  border: 1px solid #3a3a3a;
-  border-radius: 8px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.7), inset 0 0 8px rgba(255, 255, 255, 0.05);
-}
-
-.page-frame2 {
-  width: 60%;
-  margin: 1rem auto 0;
-  display: flex;
-  justify-content: center;
-  background-color: transparent;
-  border: 1px solid #3a3a3a;
-  border-radius: 8px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.7), inset 0 0 8px rgba(255, 255, 255, 0.05);
-}
-
 /* ====================== FIRST SECTION ===================== */
 .first-section {
-  background-color: #141414;
+  background: #141414;
   padding: 3rem 2rem 2rem;
 }
 
@@ -393,15 +403,17 @@ html, body {
 }
 
 .second-section-inner {
-  border: 1px solid #3a3a3a;
-  padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  gap: 0;
   background-color: rgba(14, 14, 14, 0.9725490196);
   background-image: url("assets/img/concrete.png");
-  background-size: 100%;
   background-blend-mode: multiply;
+  background-size: 100%;
+  border: 1px solid #3a3a3a;
+  padding-bottom: 2rem;
 }
 
 .records-title {
@@ -414,22 +426,24 @@ html, body {
 
 .record-card {
   display: flex;
-  align-items: center;
-  background: #141414;
-  border: 1px solid #2f2f2f;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 1rem;
+  border: 1px solid #2b2b2b;
   border-radius: 8px;
+  background: #141414;
   margin-top: 1.2rem;
   padding: 0.6rem;
-  gap: 1rem;
   width: 90%;
 }
 
 .record-card:hover {
-  background: rgb(24, 24, 24);
-  border-color: #5a5a5a;
+  background-color: rgb(24, 24, 24);
   background-image: url("assets/img/noise2.jpg");
-  background-size: 300px;
   background-blend-mode: overlay;
+  background-size: 300px;
+  border-color: #5a5a5a;
 }
 
 .record-thumb {
@@ -459,7 +473,10 @@ html, body {
 /* ====================== THIRD SECTION ===================== */
 .third-section {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
+  gap: 0;
   padding: 2rem;
   width: 80%;
   border-top-left-radius: inherit;
@@ -490,19 +507,9 @@ html, body {
   z-index: 2;
 }
 
-/* Scrollbar */
-.third-section-inner::-webkit-scrollbar {
-  width: 6px;
-}
-
-.third-section-inner::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
-}
-
 .updates-title {
-  font-family: "VT323", monospace;
-  font-size: 24px;
+  font-family: "Courier New", monospace;
+  font-size: 20px;
   font-style: italic;
   text-align: end;
   color: #eee;
@@ -511,8 +518,10 @@ html, body {
 
 .updates-header {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
+  gap: 0;
   gap: 0.5rem;
   padding: 0.5rem 0;
 }
@@ -520,8 +529,8 @@ html, body {
 .update-entry {
   position: relative;
   padding: 0.8rem 1.8rem 0.9rem 2.4rem;
-  border-bottom: 1px solid #1f1f1f;
-  font-family: "Consolas", "Courier New", monospace;
+  border-bottom: 1px solid #2b2b2b;
+  font-family: "MS UI Gothic", "Share Tech Mono", sans-serif;
   transition: background 0.15s ease-out;
 }
 
@@ -575,6 +584,9 @@ html, body {
   white-space: normal;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0;
   overflow: visible;
   gap: 0.4rem;
   min-height: auto;
@@ -594,12 +606,15 @@ html, body {
 .fourth-section {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0;
   margin-left: 1rem;
 }
 
 .blog-fragments {
-  background: rgba(15, 15, 15, 0.65);
-  border: 1px solid #2a2a2a;
+  background: rgba(14, 14, 14, 0.85);
+  border: 1px solid #2b2b2b;
   padding: 1rem 1.2rem;
   margin: 2rem 4rem 1.5rem 0;
   font-family: "MS UI Gothic", "Share Tech Mono", sans-serif;
@@ -620,10 +635,16 @@ html, body {
 }
 
 .blog-list {
-  margin: 0;
-  padding-left: 0;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 0;
+  margin: 0;
+  padding-left: 0;
+}
+
+.blog-list li {
   list-style: none;
 }
 
@@ -659,11 +680,11 @@ html, body {
 }
 
 .fragment-log {
-  background: rgba(15, 15, 15, 0.65);
-  border: 1px solid #2a2a2a;
+  background: rgba(14, 14, 14, 0.85);
+  border: 1px solid #2b2b2b;
   padding: 0.5rem 0.5rem 0.2rem 0.5rem;
   margin: 0 2rem 1.5rem;
-  font-family: "MS UI Gothic", "Share Tech Mono", monospace;
+  font-family: "MS UI Gothic", "Share Tech Mono", sans-serif;
   color: #ccc;
   text-shadow: 0 0 1px #000;
 }
@@ -695,7 +716,7 @@ html, body {
 }
 
 /* =========================================================
-                    ABOUT - PAGE
+                        ABOUT - PAGE
 ======================================================== */
 .about-section {
   padding: 2rem;
@@ -718,10 +739,10 @@ html, body {
 }
 
 .about-card {
-  border: 1px solid #3a3a3a;
+  border: 1px solid #2b2b2b;
   border-radius: 8px;
   padding: 2rem;
-  background-color: rgba(14, 14, 14, 0.85);
+  background: rgba(14, 14, 14, 0.85);
   width: 85%;
   margin: 0 auto;
   box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.04);
@@ -729,7 +750,10 @@ html, body {
 
 .about-avatar-wrapper {
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: stretch;
+  gap: 0;
 }
 
 .about-avatar {
@@ -771,8 +795,8 @@ html, body {
 .about-btn {
   background: rgba(20, 20, 20, 0.8);
   border: 1px solid #3a3a3a;
-  padding: 1rem;
   border-radius: 8px;
+  padding: 1rem;
   text-align: center;
   color: #ddd;
   text-decoration: none;
@@ -813,7 +837,7 @@ html, body {
 
 .blog-list {
   padding: 1.5rem;
-  background-color: #141414;
+  background: #141414;
   border-radius: inherit;
 }
 
@@ -858,9 +882,12 @@ html, body {
 
 .blog-wrapper {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
   gap: 1rem;
   padding: 1rem;
-  align-items: flex-start;
 }
 
 .sidebar {
@@ -936,48 +963,19 @@ html, body {
 ======================================================== */
 .coming-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  gap: 0;
   height: 70vh;
   background-color: #000;
   margin-top: 4rem;
-}
-
-.coming-box {
-  background: rgba(20, 20, 20, 0.85);
-  border: 1px solid #3a3a3a;
-  border-radius: 8px;
-  padding: 2rem 3rem;
-  max-width: 500px;
-  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.05), 0 0 12px rgba(0, 0, 0, 0.7);
-}
-
-.coming-title {
-  font-family: "VT323", monospace;
-  color: #eee;
-  font-size: 28px;
-  font-style: italic;
-  margin-bottom: 1rem;
-}
-
-.coming-text {
-  font-family: "MS UI Gothic", "Share Tech Mono", sans-serif;
-  color: #bfbfbf;
-  font-size: 15px;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-  text-align: center;
 }
 
 .img-coming {
   width: 50vw;
   height: 30vw;
   opacity: 0.9;
-}
-
-.coming-padding {
-  margin-top: 2rem;
 }
 
 footer {

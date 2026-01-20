@@ -1,0 +1,19 @@
+.page-frame {
+  width: 60%;
+  margin: 1rem auto 0;
+  background-color: transparent;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.7), inset 0 0 8px rgba(255,255,255,0.05);
+}
+
+.page-frame2 {
+  width: 60%;
+  margin: 1rem auto 0;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  border: 1px solid #3a3a3a;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.7), inset 0 0 8px rgba(255, 255, 255, 0.05);
+}
