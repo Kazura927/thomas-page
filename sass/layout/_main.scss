@@ -546,13 +546,13 @@ opacity: 0.9;
 ======================================================== */
 .coming-wrapper {
   @include flex(column, center, center);
-  height: 70vh;
-  background-color: #000;
   margin-top: 4rem;
 }
 
 .img-coming {
-  width: 50vw;
-  height: 30vw;
+  border: 1px solid #3a3a3a;
   opacity: 0.9;
+  max-width: 700px;
+  width: 80%;
+  height: auto;
 }
