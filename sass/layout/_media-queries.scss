@@ -28,6 +28,8 @@
   padding: .5rem;
   }
 
+  .divisor-stamps2 a:first-of-type { display: none ; }
+
 }
 
 @media (max-width: 768px) {
@@ -49,6 +51,7 @@
   .mute-button { display: none; }
   .texto-header { text-wrap: nowrap; }
   .active { overflow: hidden; }
+  .divisor-stamps2 a { display: none ; }
 
   .retro-navbar {
     display: flex;
@@ -66,6 +69,10 @@
 
   .list-unstyled {
     gap: 0 1rem;
+  }
+
+  .page-frame {
+    min-width: 450px;
   }
 
 }

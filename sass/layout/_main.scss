@@ -360,7 +360,7 @@ opacity: 0.9;
 .about-title {
   text-align: center;
   font-family: $fuente-pixel;
-  font-size: 26px;
+  font-size: 2.2rem;
   font-style: italic;
   color: #eee;
   margin-bottom: .5rem;
@@ -418,6 +418,7 @@ opacity: 0.9;
 .blog-header h1 {
   font-family: $fuente-pixel;
   color: #eee;
+  font-size: 2.2rem;
 }
 
 .blog-subtitle {
@@ -540,6 +541,97 @@ opacity: 0.9;
 .post-body p {
   margin-bottom: 14px;
 }
+
+/* =========================================================
+                        CONTACT - PAGE
+======================================================== */
+.contact-section {
+  padding: 2rem;
+  background-color: $bg-color1;
+  border-radius: inherit;
+}
+
+.contact-card {
+  @include bordered-box($border2);
+  padding: 2rem;
+  background: $bg-color2;
+  width: 85%;
+  margin: 0 auto;
+  box-shadow: inset 0 0 8px rgba(255,255,255,0.04);
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.contact-header h1 {
+  font-family: $fuente-pixel;
+  color: #eee;
+  font-size: 2.2rem;
+}
+
+.contact-header p {
+  color: #aaa;
+  font-size: 14px;
+}
+
+.contact-text {
+  color: #ccc;
+  line-height: 1.7;
+  margin-top: 0;
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+.contact-text2 {
+  color: #ccc;
+  line-height: 1.7;
+  margin-top: 2rem;
+  margin-bottom: 0;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.contact-overflow {
+  
+  width: 200px; /* O cualquier ancho definido */
+  white-space: nowrap; /* Evita que el texto salte de línea */
+  overflow: hidden; /* Oculta el texto que se sale del contenedor */
+  text-overflow: ellipsis; /* Añade los puntos suspensivos */
+}
+
+.contact-btn {
+  background: rgba(20,20,20,0.8);
+  @include bordered-box;
+  padding: 1rem;
+  text-align: center;
+  color: #ddd;
+  text-decoration: none;
+  font-family: $fuente-gotica;
+  transition: 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-btn:hover {
+  background: rgba(35,35,35,1);
+  border-color: #5a5a5a;
+}
+
+.contact-btn p {
+  margin: 0;
+  padding-top: .5rem;
+}
+
 
 /* =========================================================
                     COMING SOON - PAGE
