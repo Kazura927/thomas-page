@@ -602,10 +602,10 @@ opacity: 0.9;
 
 .contact-overflow {
   
-  width: 200px; /* O cualquier ancho definido */
-  white-space: nowrap; /* Evita que el texto salte de línea */
-  overflow: hidden; /* Oculta el texto que se sale del contenedor */
-  text-overflow: ellipsis; /* Añade los puntos suspensivos */
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .contact-btn {
@@ -632,6 +632,110 @@ opacity: 0.9;
   padding-top: .5rem;
 }
 
+/* =========================================================
+                    PHOTOS - PAGE
+======================================================== */
+
+#photos-body {
+  background: #000;
+}
+
+#photos-grid {
+  display: flex;          /* opcional: si querés centrar todo el grupo */
+  flex-direction: column;
+  margin: 2rem 0;
+  align-items: center;
+  gap: 3px;
+}
+
+.grid-2col {
+  display: grid;
+  gap: 3px;
+}
+.grid-2col img {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-color: #fff;
+  border-style: dashed;
+  border-width: 1px;
+}
+
+
+.grid-3col {
+  display: grid;
+  gap: 3px;
+}
+.grid-3col img {
+  width: 100%;
+  max-width: 650px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-color: #fff;
+  border-style: dashed;
+  border-width: 1px;
+}
+
+.photo-edit {
+  max-height: 400px;
+  object-fit: cover;
+  object-position: 50% 65%;
+}
+
+.photo-edit2 {
+  max-height: 400px;
+  object-fit: cover;
+  object-position: 50% 45%;
+}
+
+.photo-edit3 {
+  max-height: 360px;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
+.photo-edit4 {
+  max-height: 455px;
+  object-fit: cover;
+  object-position: 50% 40%;
+}
+
+.grid-1 {
+  grid-template-columns: .9fr 1fr;
+}
+
+.grid-2 {
+  grid-template-columns: .9fr .7fr;
+}
+
+.grid-3 {
+  grid-template-columns: .9fr .6fr;
+}
+
+.grid-4 {
+  grid-template-columns: .8fr 1fr .8fr;
+  align-items: flex-end;
+}
+
+.grid-5 {
+  grid-template-columns: .9fr .6fr .6fr;
+  align-items: flex-end;
+}
+
+.grid-6 {
+  grid-template-columns: .7fr .7fr;
+}
+
+.grid-7 {
+  grid-template-columns: .7fr .7fr;
+}
+
+.grid-8 {
+  grid-template-columns: 1fr;
+}
 
 /* =========================================================
                     COMING SOON - PAGE
