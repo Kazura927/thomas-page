@@ -348,8 +348,8 @@ opacity: 0.9;
 }
 
 .about-avatar {
-  width: 140px;
-  height: 140px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   border-radius: 6px;
   filter: contrast(0.85) brightness(0.85) saturate(0.6);
@@ -736,6 +736,101 @@ opacity: 0.9;
 .grid-8 {
   grid-template-columns: 1fr;
 }
+
+/* =========================================================
+                    MUSIC - PAGE
+======================================================== */
+
+#music-body {
+  position: relative;
+  min-height: 100vh;
+  background-color: #000;
+}
+
+#music-body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)),
+    url(../../assets/img/background5.jpg) center/cover repeat;
+  background-attachment: fixed;
+  background-position: 50% 20%;
+  z-index: 0;
+}
+
+
+#music-body * {
+  position: relative;
+  z-index: 1;
+}
+
+.music-title {
+  font-family: $fuente-gotica;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.music-box {
+  width: 60%;
+  margin: 0 auto;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  
+  border: 1px solid #fff;
+
+  background-color: rgba(0, 0, 0, 0.7); /* 0.7 = 70% opaco */
+}
+
+.music-text {
+  padding: 4rem 0;
+  font-size: 20px;
+  max-width: 70ch;
+  text-align: center;
+}
+
+.music-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  justify-items: center;
+  padding: 2rem;
+}
+
+.music-card {
+  border: 2px solid #fff;
+  padding: 0.8rem 0.8rem 0;  
+  text-align: center;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.music-card img {
+  width: 180px
+}
+
+.music-card h2 {
+  padding-top: 1rem;
+  font-size: 0.9rem;
+  max-width: 18ch;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.music-card p {
+  color: #a7a7a7;
+  padding: .9rem 0 1.3rem;
+  font-size: 0.8rem;
+}
+
 
 /* =========================================================
                     COMING SOON - PAGE
