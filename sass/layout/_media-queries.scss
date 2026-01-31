@@ -1,19 +1,13 @@
 @media (max-width: 992px) {
-  .retro-navbar {
-    gap: 0.5rem;
-  }
+  .retro-navbar { gap: 0.5rem; }
+  #photos-grid { margin: 0; }
+  .sidebar { width: 100%; }
+  .sidebar-title { display: none; }
+  .divisor-stamps2 a:first-of-type { display: none ; }
 
   .blog-wrapper {
     display: flex;
     flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-  }
-
-  .sidebar-title {
-    display: none;
   }
 
   .list-unstyled {
@@ -27,9 +21,6 @@
   border-top: none;
   padding: .5rem;
   }
-
-  .divisor-stamps2 a:first-of-type { display: none ; }
-
 }
 
 @media (max-width: 768px) {
