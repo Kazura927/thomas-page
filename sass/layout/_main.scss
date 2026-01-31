@@ -272,6 +272,7 @@
   color: #fff;
   text-shadow: 0 0 3px #999;
   text-decoration: underline;
+  cursor: url("../../assets/cursor/pointer.cur"), pointer;
 }
 
 .fragment-log {
@@ -377,6 +378,10 @@ opacity: 0.9;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.5rem;
+}
+
+.about-grid a:hover{
+  cursor: url("../../assets/cursor/pointer.cur"), pointer;
 }
 
 .about-hub {
@@ -600,8 +605,9 @@ opacity: 0.9;
   gap: 1.5rem;
 }
 
-.contact-overflow {
-  
+.contact-grid a:hover { cursor: url("../../assets/cursor/pointer.cur"), pointer; }
+
+.contact-overflow {  
   width: 200px;
   white-space: nowrap;
   overflow: hidden;

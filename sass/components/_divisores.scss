@@ -29,9 +29,16 @@
   gap: 2rem;
 }
 
+.divisor-stamps a:hover {
+  cursor: url("../../assets/cursor/pointer.cur"), pointer;
+}
+
 .divisor-stamps2 {
   background-color: $bg-color1;
   display: flex;
   justify-content: center;
   gap: 2rem;
 }
+
+.divisor-stamps2 a { cursor: url("../../assets/cursor/pointer.cur"), pointer; }
+.divisor-stamps2 a:hover { cursor: url("../../assets/cursor/pointer.cur"), pointer; }
