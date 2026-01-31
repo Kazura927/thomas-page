@@ -1199,7 +1199,7 @@ body {
 }
 
 /* =========================================================
-                    MUSIC - PAGE
+                      MUSIC - PAGE
 ======================================================== */
 #music-body {
   position: relative;
@@ -1495,6 +1495,54 @@ footer {
     border-top: none;
     padding: 0.5rem;
   }
+  /* MUSIC PAGE */
+  .music-box {
+    width: 80%; /* más ancho relativo para pantallas medianas */
+  }
+  .music-grid {
+    gap: 1.5rem; /* menos espacio entre cards */
+  }
+  .music-card img {
+    width: 150px;
+  }
+  .music-card h2 {
+    font-size: 0.85rem;
+  }
+  .music-card p {
+    font-size: 0.75rem;
+  }
+  /* GAMES PAGE */
+  .games-box {
+    width: 85%; /* más ancho relativo para tablets */
+  }
+  .games-grid {
+    gap: 1.5rem;
+  }
+  .game-card img {
+    width: 140px;
+  }
+  .game-card h2 {
+    font-size: 0.85rem;
+    max-width: 14ch;
+  }
+  .game-card p {
+    font-size: 0.7rem;
+  }
+  /* MISC PAGE */
+  .misc-box {
+    width: 50%;
+    padding: 1.5rem 0;
+  }
+  .misc-entry p {
+    font-size: 0.85rem;
+    max-width: 45ch;
+  }
+  .misc-entry img {
+    max-height: 280px;
+  }
+  .misc-scroll {
+    gap: 3rem;
+  }
 }
 @media (max-width: 768px) {
   .page-frame2 {
@@ -1545,10 +1593,83 @@ footer {
   .page-frame {
     min-width: 450px;
   }
+  /* MISC PAGE */
+  .misc-box {
+    width: 60%;
+  }
+  .misc-entry p {
+    font-size: 0.8rem;
+    max-width: 40ch;
+  }
+  .misc-entry img {
+    max-height: 250px;
+  }
+  .misc-scroll {
+    gap: 2.5rem;
+  }
 }
 @media (max-width: 630px) {
   .retro-navbar {
     flex-wrap: wrap;
+  }
+  .music-box {
+    width: 95%;
+  }
+  .music-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .music-card img {
+    width: 130px;
+  }
+  .music-card h2 {
+    font-size: 0.75rem;
+  }
+  .music-card p {
+    font-size: 0.7rem;
+  }
+  .music-title {
+    font-size: 1.5rem;
+    padding: 1rem 0;
+  }
+  /* GAMES PAGE */
+  .games-box {
+    width: 95%;
+    padding: 2rem 0;
+  }
+  .games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    margin: 0 1rem;
+  }
+  .game-card img {
+    width: 120px;
+  }
+  .game-card h2 {
+    font-size: 0.75rem;
+    max-width: 12ch;
+  }
+  .game-card p {
+    font-size: 0.65rem;
+  }
+  .games-title {
+    font-size: 1.5rem;
+    padding: 1rem 0;
+  }
+  /* MISC PAGE */
+  .misc-box {
+    width: 75%;
+  }
+  .misc-entry p {
+    font-size: 0.75rem;
+    max-width: 35ch;
+  }
+  .misc-entry img {
+    max-height: 220px;
+  }
+  .misc-scroll {
+    gap: 2rem;
   }
 }
 @media (max-width: 570px) {
@@ -1596,6 +1717,26 @@ footer {
   }
   .list-unstyled {
     gap: 0 2rem;
+  }
+  /* MISC PAGE */
+  .misc-box {
+    width: 90%;
+    padding: 1rem 0;
+    max-height: 85vh;
+  }
+  .misc-entry p {
+    font-size: 0.7rem;
+    max-width: 30ch;
+  }
+  .misc-entry img {
+    max-height: 180px;
+  }
+  .misc-scroll {
+    gap: 1.5rem;
+  }
+  .misc-title {
+    font-size: 1.3rem;
+    padding: 0.5rem 0;
   }
 }
 
