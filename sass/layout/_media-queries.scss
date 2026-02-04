@@ -320,3 +320,63 @@
     padding: 0.5rem 0;
   }
 }
+
+@media (max-width: 412px) {
+  .page-frame {
+    min-width: 100%;
+  } 
+
+  .contact-section {
+    padding: 1rem;
+  }
+
+  .contact-card {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  .contact-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .contact-header p {
+    font-size: 12px;
+  }
+
+  .contact-text,
+  .contact-text2 {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .contact-btn {
+    padding: 0.8rem;
+    font-size: 13px;
+  }
+
+  .contact-overflow {
+    width: 100%;
+    white-space: normal; /* para que el texto largo se rompa en varias líneas */
+    overflow: visible;
+    text-overflow: clip;
+    word-break: break-word;
+  }
+
+  .divisor-stamps2 {
+    padding-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .divisor-stamps2 img {
+    max-width: 40px;
+    height: auto;
+  }
+}
