@@ -234,14 +234,20 @@
   }
 }
 
-@media (max-width: 570px) {
+@media (max-width: 660px) {
   .moon-left, .moon-right {
     display: none;
   }
+}
 
+@media (max-width: 570px) {
   .page-frame {
-    width: 100%;
+    min-width: 100%;
     margin-top: 0;
+  }
+
+  .page-frame2 {
+    width: 90%;
   }
 
   .texto-header {
@@ -254,10 +260,6 @@
 
   .divisor2 {
     font-size: 16px;
-  }
-
-  .page-frame2 {
-    width: 100%;
   }
 
   .third-section-inner {
@@ -274,7 +276,6 @@
   }
 
   .blog-fragments {
-
     width: 70%;
   }
 
@@ -321,10 +322,7 @@
   }
 }
 
-@media (max-width: 412px) {
-  .page-frame {
-    min-width: 100%;
-  } 
+@media (max-width: 420px) {
 
   .contact-section {
     padding: 1rem;
